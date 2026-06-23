@@ -1,0 +1,2 @@
+import Avatar from '../components/Avatar';import { useAuth } from '../context/AuthContext';
+export default function Profile(){const {user}=useAuth();return <div className="mx-auto max-w-xl p-6"><div className="rounded-3xl bg-white p-8 shadow"><Avatar user={user}/><h1 className="mt-4 text-2xl font-black">{user.name}</h1><p className="text-slate-500">{user.email}</p><p className="mt-6 rounded-xl bg-slate-100 p-4 text-sm">Avatar initials are generated from your profile name.</p></div></div>}

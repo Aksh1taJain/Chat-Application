@@ -1,0 +1,2 @@
+import { initials } from '../utils/time';
+export default function Avatar({ user, online }) { return <div className="relative"><div className="grid h-10 w-10 place-items-center rounded-full bg-indigo-600 font-bold text-white">{user?.avatar || initials(user?.name)}</div>{online !== undefined && <span className={`absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white ${online ? 'bg-emerald-500' : 'bg-slate-300'}`} />}</div>; }
