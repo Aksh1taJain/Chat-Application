@@ -31,45 +31,6 @@ npm run dev
 
 Open `http://localhost:5173` in two browser windows, register two users, search for the other user, and start chatting.
 
-## API Routes
-
-All protected routes require `Authorization: Bearer <token>`.
-
-### Auth
-
-- `POST /api/auth/register` — create user with `name`, `email`, `password`.
-- `POST /api/auth/login` — authenticate with `email`, `password`.
-- `GET /api/auth/me` — get the current authenticated user.
-
-### Users
-
-- `GET /api/users/search?q=<term>` — search users by name or email, excluding yourself.
-
-### Chats
-
-- `POST /api/chats` — create or access a private chat with `userId`.
-- `POST /api/chats/group` — create group chat with `chatName` and `users` array.
-- `GET /api/chats` — list chats for the current user with latest message preview.
-
-### Messages
-
-- `GET /api/messages/:chatId` — list chat messages.
-- `POST /api/messages` — send message with `chatId` and `content`.
-- `PATCH /api/messages/:chatId/read` — mark chat messages as read.
-
-## MongoDB Schemas
-
-### User
-
-Stores profile and auth data: `name`, `email`, hashed `password`, `avatar`, `isOnline`, and `lastSeen`.
-
-### Chat
-
-Stores private or group conversations: `isGroupChat`, `chatName`, `users`, `latestMessage`, and `groupAdmin`.
-
-### Message
-
-Stores encrypted chat messages: `sender`, `chat`, encrypted `content`, `readBy`, and timestamps. Message content is encrypted with AES-256-GCM before being saved and decrypted when returned by the API.
 
 ## Real-Time Events
 
@@ -81,13 +42,6 @@ Socket.io handles:
 - `new-message` and `message-received` for live delivery.
 - `messages-read` and `read-receipt-updated` for read receipts.
 
-## Screenshots
-
-Add screenshots here after running locally:
-
-- Login page
-- Chat dashboard
-- Group chat
 
 ## Project Structure
 
